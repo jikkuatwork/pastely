@@ -10,3 +10,4 @@ Simple utility to collect pastes
 - [ ] Refine design
 - [ ] Strip ig
 - [ ] cli to download pastes
+- [ ] Prevent empty pastes

@@ -65,7 +65,13 @@
   }
 
   app.addItem = t => {
-    app.db.payload.clipboard.push(t)
+    const _t = t.trim()
+
+    if (_t == "") {
+      return
+    }
+
+    app.db.payload.clipboard.push(_t)
     write(app.remoteDB(), app.db)
     app.render()
   }
