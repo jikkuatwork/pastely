@@ -10,6 +10,15 @@
     write(app.remoteDB(), data)
   }
 
+  const stripIGId = link => {
+    if (link.match(/instagram.com/)) {
+      const regex = /(reel|tv)\/(?<id>.*?)\//
+      return link.match(regex)[2]
+    } else {
+      return link
+    }
+  }
+
   const write = (url, data) => {
     const value = JSON.stringify(data)
 
@@ -65,7 +74,7 @@
   }
 
   app.addItem = t => {
-    const _t = t.trim()
+    const _t = stripIGId(t.trim())
 
     if (_t == "") {
       return
