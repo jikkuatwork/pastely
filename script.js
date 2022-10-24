@@ -1,13 +1,14 @@
 ;(function () {
+  KEY = "password"
+
   window.app = {}
   const app = window.app
   app.name = "Pastely"
   app.remoteDB = () => `https://textdb.dev/api/data/${app.id}`
   app.intializeRemoteDB = () => {
-    const data = { error: null, payload: { clipboard: [] } }
-    app.db = data
+    app.db = { error: null, payload: { clipboard: [] } }
 
-    write(app.remoteDB(), data)
+    write(app.remoteDB(), app.db)
   }
 
   const stripIGId = link => {
@@ -52,8 +53,6 @@
 
   queryString = location.search
   app.id = getId(queryString)
-
-  console.log(queryString)
 
   app.pasteButton = document.querySelector("#paste-button")
   app.pasteArea = document.querySelector("#shadow-paste")
