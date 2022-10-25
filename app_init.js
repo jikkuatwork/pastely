@@ -6,7 +6,8 @@
   app.id = () => app.nocket.id
   app.state = {
     ui: {
-      actionSheet: { visibility: false },
+      actionSheet: { visibility: true },
+      password: { visibility: false },
     },
   }
 
@@ -18,6 +19,8 @@
   app.moreButton = document.querySelector("#more-button")
   app.iconMore = document.querySelector("#icon-more")
   app.iconClose = document.querySelector("#icon-close")
+  app.passwordInput = document.querySelector("#input-encrypt")
+  app.toggleEncrypt = document.querySelector("#toggle-encrypt")
 
   app.render = () => {
     const toggleVisibility = (element, state) => {
@@ -31,6 +34,7 @@
     toggleVisibility(app.actionSheet, app.state.ui.actionSheet.visibility)
     toggleVisibility(app.iconMore, !app.state.ui.actionSheet.visibility)
     toggleVisibility(app.iconClose, app.state.ui.actionSheet.visibility)
+    toggleVisibility(app.passwordInput, app.state.ui.password.visibility)
 
     app.clipBoard.innerHTML = ""
 
@@ -53,6 +57,7 @@
 
     app.db.payload.clipboard.push(_t)
     app.nocket.write(app.db)
+
     app.render()
   }
 

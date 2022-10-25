@@ -9,10 +9,10 @@
 
 .toggle:checked ~ .dot {
   transform: translateX(100%);
-  background-color: #86efac;
+  background-color: #000;
 }
 
 .toggle:checked + .bkg {
   /* transform: translateX(100%); */
-  background-color: #111827;
+  background-color: #fde68a;
 }
