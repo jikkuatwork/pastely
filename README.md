@@ -17,3 +17,4 @@ Simple utility to collect pastes
 - [ ] Implement toasts
 - [ ] Sync lists periodically
 - [ ] Delete everything & confirmation
+- [ ] Make link copyable
