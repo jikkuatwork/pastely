@@ -11,3 +11,4 @@ Simple utility to collect pastes
 - [ ] Strip ig
 - [ ] cli to download pastes
 - [ ] Prevent empty pastes
+- [x] Scrollable paste area
