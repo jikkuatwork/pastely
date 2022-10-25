@@ -17,5 +17,20 @@ const Nocket = id => {
     return _id
   }
 
-  return { id: getId(id) }
+  const _id = getId(id)
+  const url = `https://textdb.dev/api/data/${id}`
+
+  const read = () => fetch(url)
+
+  const write = data => {
+    const value = JSON.stringify(data)
+
+    fetch(url, {
+      body: value,
+      headers: { "Content-Type": "text/plain" },
+      method: "POST",
+    })
+  }
+
+  return { id: _id, read: read, write: write }
 }
