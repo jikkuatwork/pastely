@@ -13,4 +13,4 @@ Simple utility to collect pastes
 - [x] Prevent empty pastes
 - [x] Scrollable paste area
 - [ ] Encrypt payload
-- [ ] Implement settings
+- [ ] Implement settings (password, copying of links)

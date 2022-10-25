@@ -1,9 +1,6 @@
 ;(function () {
   KEY = "password"
 
-  window.app = {}
-  const app = window.app
-  app.name = "Pastely"
   app.remoteDB = () => `https://textdb.dev/api/data/${app.id}`
   app.intializeRemoteDB = () => {
     app.db = { error: null, payload: { clipboard: [] } }
@@ -29,30 +26,6 @@
       method: "POST",
     })
   }
-
-  const getRandomId = () => {
-    const randomChar = () =>
-      String.fromCharCode(97 + Math.floor(26 * Math.random()))
-    return [1, 1, 1]
-      .map(_ => {
-        return [1, 1, 1].map(randomChar).join("")
-      })
-      .join("-")
-  }
-
-  const getId = function (queryString) {
-    let _id = queryString.replace("?", "").split("=")[0]
-
-    if (_id == "") {
-      _id = getRandomId()
-      history.pushState({}, "", `?${_id}`)
-    }
-
-    return _id
-  }
-
-  queryString = location.search
-  app.id = getId(queryString)
 
   app.pasteButton = document.querySelector("#paste-button")
   app.pasteArea = document.querySelector("#shadow-paste")
