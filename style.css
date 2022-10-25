@@ -1,3 +1,18 @@
 .top-shadow {
   box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.04);
 }
+
+.toggle ~ .dot {
+  transform: translateX(0);
+  background-color: #fff;
+}
+
+.toggle:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #86efac;
+}
+
+.toggle:checked + .bkg {
+  /* transform: translateX(100%); */
+  background-color: #111827;
+}
