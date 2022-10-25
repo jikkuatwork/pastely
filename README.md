@@ -18,3 +18,5 @@ Simple utility to collect pastes
 - [ ] Sync lists periodically
 - [ ] Delete everything & confirmation
 - [ ] Make link copyable
+- [ ] Convert to PWA
+- [ ] Test Lit
