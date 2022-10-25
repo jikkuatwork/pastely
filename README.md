@@ -6,10 +6,14 @@ Simple utility to collect pastes
 
 - [x] Make list scrollable
 - [ ] Flush list
-- [ ] id label
+- [x] id label
 - [ ] Refine design
 - [ ] cli to download pastes
 - [x] Prevent empty pastes
 - [x] Scrollable paste area
 - [ ] Encrypt payload
 - [ ] Implement settings ui (password, copying of links)
+- [ ] Password protected message
+- [ ] Implement toasts
+- [ ] Sync lists periodically
+- [ ] Delete everything & confirmation
