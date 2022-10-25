@@ -24,6 +24,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -32,16 +33,66 @@
     ></div>
     <div class="flex justify-center w-100">
       <div
-        class="max-w-2xl h-screen flex flex-col justify-between w-full px-4 font-mono"
+        class="max-w-2xl h-screen flex flex-col justify-between w-full font-mono"
       >
-        <div id="clipboard" class="max-h-screen overflow-x-auto"></div>
         <div
+          id="clipboard"
+          class="max-h-screen p-2 mt-2 overflow-x-auto px-4"
+        ></div>
+        <div
+          id="controls"
           data-paste="shadow-paste"
-          id="paste-button"
-          class="card select-none text-center cursor-pointer flex flex-col bg-yellow-100 my-4 px-3 py-1 rounded-lg"
+          class="flex flex-col mb-4 pt-4 top-shadow px-4"
         >
           <textarea id="shadow-paste" class="hidden"></textarea>
-          <div class="title font-black">Paste</div>
+          <div class="flex">
+            <div
+              class="title flex-grow mr-2 cursor-pointer select-none text-center p-2 rounded-md font-black bg-yellow-200"
+              id="paste-button"
+            >
+              Paste
+            </div>
+            <div class="bg-yellow-200 p-2 rounded-md cursor-pointer">
+              <svg
+                id="icon-close"
+                class=""
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <svg
+                id="icon-more"
+                class="hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+              </svg>
+            </div>
+          </div>
+          <div id="action-sheet" class="mt-4">
+            <div class="bg-green-200">First</div>
+            <div class="bg-red-200">Second</div>
+            <div class="bg-purple-200">Third</div>
+          </div>
         </div>
       </div>
     </div>

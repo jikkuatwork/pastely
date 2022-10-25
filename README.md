@@ -10,5 +10,7 @@ Simple utility to collect pastes
 - [ ] Refine design
 - [ ] Strip ig
 - [ ] cli to download pastes
-- [ ] Prevent empty pastes
+- [x] Prevent empty pastes
 - [x] Scrollable paste area
+- [ ] Encrypt payload
+- [ ] Implement settings
