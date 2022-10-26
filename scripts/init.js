@@ -4,6 +4,7 @@
   app.name = "Pastely"
   app.nocket = Nocket(location.search.replace("?", "").split("=")[0])
   app.id = () => app.nocket.id
+  app.helpers = {}
   app.state = {
     ui: {
       actionSheet: { visibility: false },
@@ -64,7 +65,7 @@
       return
     }
 
-    app.db.payload.clipboard.push(_t)
+    app.db.payload.clipboard.push(app.helpers.clean(_t))
     app.nocket.write(app.db)
 
     app.render()

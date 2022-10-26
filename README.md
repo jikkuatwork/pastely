@@ -14,11 +14,11 @@ Simple utility to collect pastes
 - [x] Implement settings ui (password, copying of links)
 - [x] Flush list
 - [x] Delete everything & confirmation
+- [ ] Strip query string & protocol
 - [ ] cli to download pastes
 - [ ] Test custom components
 - [ ] Test compilation into single file
 - [ ] Sync lists periodically
-- [ ] Strip query string & protocol
 - [ ] Restructure files
 - [ ] Password protected message
 - [ ] Make link copyable
