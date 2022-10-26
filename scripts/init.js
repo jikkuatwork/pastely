@@ -29,6 +29,7 @@
   app.notifier = document.querySelector("#notifier")
   app.notifierCancel = document.querySelector("#notifier .no")
   app.notifierConfirm = document.querySelector("#notifier .yes")
+  app.settingsId = document.querySelector("#as-id")
 
   app.render = () => {
     const toggleVisibility = (element, state) => {
