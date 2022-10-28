@@ -54,8 +54,7 @@ class SettingsId extends HTMLElement {
                 </div>
               </div>`
 
-    app.copyButton = document.querySelector("#id-copy-clickarea")
-    app.copyButton.onclick = () =>
+    document.querySelector("#id-copy-clickarea").onclick = () =>
       app.helpers.copy(`https://pastely.com/?${app.id()}`)
   }
 }
