@@ -8,7 +8,7 @@
   app.helpers = {}
   app.state = {
     ui: {
-      actionSheet: { visibility: true },
+      actionSheet: { visibility: false },
       password: { visibility: false },
       overlay: { visibility: false },
     },
