@@ -18,7 +18,8 @@ Simple utility to collect pastes
 - [x] Convert to PWA
 - [x] Test custom components
 - [x] Restructure files
-- [ ] Make link copyable
+- [x] Make link copyable
+- [x] Implement smart notifier
 - [ ] Use 200.html
 - [ ] Password protected message
 - [ ] Change item in clipboard to object (record time of paste)

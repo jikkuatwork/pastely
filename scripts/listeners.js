@@ -15,22 +15,8 @@
     app.render()
   }
 
-  app.notifierCancel.onclick = () => {
-    app.state.ui.notifier.visibility = false
-
-    app.render()
-  }
-
   app.deleteButton.onclick = () => {
-    app.state.ui.notifier.visibility = true
-
-    app.render()
-  }
-
-  app.notifierConfirm.onclick = () => {
-    app.state.ui.notifier.visibility = false
-    app.db.payload.clipboard = []
-    app.nocket.write(app.db)
+    app.notify("Delete everything?", "confirmation", app.deleteEverything)
 
     app.render()
   }

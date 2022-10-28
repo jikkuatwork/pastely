@@ -30,7 +30,7 @@ class SettingsId extends HTMLElement {
 
                     </span>
                   </div>
-                  <div class="text-sm">https://pastely.com/?${pageId()}</div>
+                  <div class="text-sm">${app.link()}</div>
                 </div>
                 <div
                   class="flex cursor-pointer items-center justify-center bg-yellow-200 p-2 rounded-md"
@@ -55,7 +55,7 @@ class SettingsId extends HTMLElement {
               </div>`
 
     document.querySelector("#id-copy-clickarea").onclick = () =>
-      app.helpers.copy(`https://pastely.com/?${app.id()}`)
+      app.helpers.copy(app.link())
   }
 }
 

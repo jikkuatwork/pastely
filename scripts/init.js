@@ -4,13 +4,13 @@
   app.name = "Pastely"
   app.nocket = Nocket(location.search.replace("?", "").split("=")[0])
   app.id = () => app.nocket.id
+  app.link = () => `https://pastely.as/${app.id()}`
   app.helpers = {}
   app.state = {
     ui: {
       actionSheet: { visibility: true },
       password: { visibility: false },
       overlay: { visibility: false },
-      notifier: { visibility: false },
     },
   }
 
@@ -26,10 +26,8 @@
   app.passwordInput = document.querySelector("#input-encrypt")
   app.toggleEncrypt = document.querySelector("#toggle-encrypt")
   app.overlay = document.querySelector("#overlay")
-  app.notifier = document.querySelector("#notifier")
-  app.notifierCancel = document.querySelector("#notifier .no")
-  app.notifierConfirm = document.querySelector("#notifier .yes")
   app.settingsId = document.querySelector("#as-id")
+  app.notifierSlot = document.querySelector("#notifier-slot")
 
   app.render = () => {
     const toggleVisibility = (element, state) => {
@@ -45,7 +43,6 @@
     toggleVisibility(app.iconClose, app.state.ui.actionSheet.visibility)
     toggleVisibility(app.passwordInput, app.state.ui.password.visibility)
     toggleVisibility(app.overlay, app.state.ui.overlay.visibility)
-    toggleVisibility(app.notifier, app.state.ui.notifier.visibility)
 
     app.clipBoard.innerHTML = ""
 
@@ -57,6 +54,13 @@
 
       app.clipBoard.append(_clip)
     })
+  }
+
+  app.deleteEverything = () => {
+    app.db.payload.clipboard = []
+    app.nocket.write(app.db)
+
+    app.render()
   }
 
   app.addClip = t => {
