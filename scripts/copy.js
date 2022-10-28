@@ -13,6 +13,8 @@
       console.log("Error: Copying failed!")
     }
 
+    app.notify("Link copied!", "toast")
+
     document.body.removeChild(textArea)
   }
 })()
