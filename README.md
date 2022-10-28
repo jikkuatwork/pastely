@@ -16,21 +16,22 @@ Simple utility to collect pastes
 - [x] Delete everything & confirmation
 - [x] Strip query string & protocol
 - [x] Convert to PWA
+- [x] Test custom components
+- [x] Restructure files
+- [ ] Make link copyable
+- [ ] Use 200.html
+- [ ] Password protected message
+- [ ] Change item in clipboard to object (record time of paste)
+- [ ] Extract components out
+- [ ] Ability to add text
 - [ ] Optimise
 - [ ] Add version number in application
 - [ ] Add about
-- [ ] Change item in clipboard to object (record time of paste)
 - [ ] Ask for feedback
-- [ ] Use 200.html
 - [ ] Test animation
 - [ ] Delete, copy & Open for each item
 - [ ] Generate preview for images
-- [ ] Extract components out
-- [ ] Make link copyable
 - [ ] Make link editable
-- [ ] cli to download pastes
-- [ ] Test custom components
+- [ ] Cli to download pastes
 - [ ] Test compilation into single file
 - [ ] Sync lists periodically
-- [ ] Restructure files
-- [ ] Password protected message
