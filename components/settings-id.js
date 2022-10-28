@@ -6,7 +6,7 @@ class SettingsId extends HTMLElement {
               <div
                 class="flex justify-between items-center bg-red-200s py-2"
               >
-                <div class="text-block rounded-md w-full cursor-pointer">
+                <div id="id-copy-clickarea" class="text-block rounded-md w-full cursor-pointer">
                   <div class="flex items-center">
                     <div class="text-md font-black">Id</div>
                     <span
@@ -53,6 +53,10 @@ class SettingsId extends HTMLElement {
                   </svg>
                 </div>
               </div>`
+
+    app.copyButton = document.querySelector("#id-copy-clickarea")
+    app.copyButton.onclick = () =>
+      app.helpers.copy(`https://pastely.com/?${app.id()}`)
   }
 }
 
