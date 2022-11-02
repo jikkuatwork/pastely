@@ -48,7 +48,7 @@
 
     app.db.payload.clipboard.forEach(item => {
       let _clip = app.clip.cloneNode()
-      _clip.innerHTML = item
+      _clip.innerHTML = item.value
       _clip.classList.add("block")
       _clip.classList.remove("hidden")
 
@@ -57,8 +57,7 @@
   }
 
   app.deleteEverything = () => {
-    app.db.payload.clipboard = []
-    app.nocket.write(app.db)
+    app.intializeRemoteDB()
 
     app.render()
   }
@@ -70,14 +69,26 @@
       return
     }
 
-    app.db.payload.clipboard.push(app.helpers.clean(_t))
+    // TODO:
+    // read encrypted
+    // decrypt to data
+    // push
+    // encrypt back
+    const paste = { date: Date.now(), value: app.helpers.clean(_t) }
+    app.db.payload.clipboard.push(paste)
+
+    app.db.meta.updated = Date.now()
     app.nocket.write(app.db)
 
     app.render()
   }
 
   app.intializeRemoteDB = () => {
-    app.db = { error: null, payload: { clipboard: [] } }
+    app.db = {
+      error: null,
+      meta: { encrypted: false, updated: -1 },
+      payload: { clipboard: [] },
+    }
 
     app.nocket.write(app.db)
   }
