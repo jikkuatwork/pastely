@@ -24,6 +24,7 @@ Simple utility to collect pastes
 - [x] Change password
 - [x] Remove password
 - [x] Conditional stripping of query strings
+- [x] Notify of encryption enable/disable
 - [ ] Renew Link
 - [ ] Use 200.html
 - [ ] Change item in clipboard to object (record time of paste)

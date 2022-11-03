@@ -5,7 +5,9 @@ class Notifier extends HTMLElement {
     this.innerHTML = `
           <div
             class="${
-              type.value == "confirmation" ? "bg-red-500" : "bg-green-500"
+              type.value == "confirmation"
+                ? "bg-red-500 text-black"
+                : "bg-black text-yellow-300"
             } text-white px-4 py-1 flex justify-between"
           >
             <div class="text">${message.value}</div>
@@ -52,17 +54,17 @@ class Notifier extends HTMLElement {
     app.notifier = document.querySelector("notifier-strip")
 
     document.querySelector("notifier-strip .no").onclick = () => {
+      clearTimeout(app.state.ui.notifier.timeoutId)
       this.remove()
     }
 
     document.querySelector("notifier-strip .yes").onclick = () => {
-      eval(onConfirm.value)()
-
       this.remove()
+      eval(onConfirm.value)()
     }
 
     if (type.value != "confirmation") {
-      setTimeout(() => {
+      app.state.ui.notifier.timeoutId = setTimeout(() => {
         this.remove()
       }, 4000)
     }

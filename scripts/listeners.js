@@ -1,6 +1,11 @@
 ;(function () {
-  app.pasteButton.onclick = () =>
-    navigator.clipboard.readText().then(app.addClip)
+  app.pasteButton.onclick = () => {
+    if (!app.db.meta.encrypted || app.password) {
+      navigator.clipboard.readText().then(app.addClip)
+    } else {
+      app.notify("Please enter password to paste")
+    }
+  }
 
   app.moreButton.onclick = () => {
     const visibility = app.state.ui.actionSheet.visibility
@@ -22,22 +27,16 @@
         app.password = null
         app.nocket.write(app.db)
 
+        app.notify("Password protection removed.")
         app.render()
         return
       })
     } else {
-      // app.toggleEncrypt.checked = !event.target.checked
       app.state.ui.password.visibility = !app.state.ui.password.visibility
 
       app.render()
       return
     }
-
-    // if (event.target.checked == "checked") {
-    //   app.state.ui.password = false
-    // } else {
-    //   app.state.ui.password = true
-    // }
   }
 
   app.deleteButton.onclick = () => {
@@ -50,6 +49,7 @@
     const password = app.passwordInput.value.trim()
 
     if (password === "") {
+      app.notify("Password can't be empty!")
       return
     }
 
@@ -67,6 +67,7 @@
         app.password = password
         app.nocket.write(app.db)
         app.render()
+        app.notify("Password set")
       })
     }
   }

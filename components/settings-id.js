@@ -8,7 +8,7 @@ class SettingsId extends HTMLElement {
               >
                 <div id="id-copy-clickarea" class="text-block rounded-md w-full cursor-pointer">
                   <div class="flex items-center">
-                    <div class="text-md font-black">Link</div>
+                    <div class="text-md font-black">Share</div>
                     <span
                       class="rounded-full px-2.5 py-0.5 text-emerald-700"
                     >

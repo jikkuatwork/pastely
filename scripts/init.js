@@ -13,6 +13,7 @@
       password: { visibility: false },
       overlay: { visibility: false },
       delete: { visibility: true },
+      notifier: { timeoutId: 0 },
     },
   }
 
