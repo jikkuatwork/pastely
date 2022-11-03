@@ -29,14 +29,15 @@ Simple utility to collect pastes
 - [x] Change item in clipboard to object (record time of paste)
 - [x] Extract components out
 - [x] Renew Link
-- [ ] Delete, copy & Open for each item
-- [ ] Make link editable
-- [ ] Compile to single file, purge CSS, minify JS
+- [ ] Ability to add text
 - [ ] Fix iOS icon
 - [ ] Use 200.html
-- [ ] Generate preview for images
-- [ ] Ability to add text
+- [ ] Compile to single file, purge CSS, minify JS
 - [ ] Add about
+- [ ] Connect domain
+- [ ] Delete, copy & Open for each item
+- [ ] Make link editable
+- [ ] Generate preview for images
 - [ ] Test animation
 - [ ] Sync lists periodically
 - [ ] CLI to download pastes
