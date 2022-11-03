@@ -25,19 +25,19 @@ Simple utility to collect pastes
 - [x] Remove password
 - [x] Conditional stripping of query strings
 - [x] Notify of encryption enable/disable
+- [x] Ask for feedback
+- [x] Change item in clipboard to object (record time of paste)
+- [x] Extract components out
 - [ ] Renew Link
 - [ ] Use 200.html
-- [ ] Change item in clipboard to object (record time of paste)
-- [ ] Extract components out
 - [ ] Ability to add text
 - [ ] Optimise
 - [ ] Add version number in application
 - [ ] Add about
-- [ ] Ask for feedback
 - [ ] Test animation
 - [ ] Delete, copy & Open for each item
-- [ ] Generate preview for images
 - [ ] Make link editable
-- [ ] Cli to download pastes
-- [ ] Test compilation into single file
+- [ ] CLI to download pastes
+- [ ] Compile to single file
 - [ ] Sync lists periodically
+- [ ] Generate preview for images

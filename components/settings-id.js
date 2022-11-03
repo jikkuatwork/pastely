@@ -1,16 +1,15 @@
 class SettingsId extends HTMLElement {
   connectedCallback() {
-    const pageId = eval(this.attributes.pageId.value)
-
     this.innerHTML = `
               <div
                 class="flex justify-between items-center bg-red-200s py-2"
               >
-                <div id="id-copy-clickarea" class="text-block rounded-md w-full cursor-pointer">
+                <div id="id-copy-clickarea" class="text-block rounded-md w-full">
                   <div class="flex items-center">
                     <div class="text-md font-black">Share</div>
                     <span
-                      class="rounded-full px-2.5 py-0.5 text-emerald-700"
+                    id="copy-button"
+                      class="rounded-full px-2.5 py-0.5 text-emerald-700 cursor-pointer"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +53,7 @@ class SettingsId extends HTMLElement {
                 </div>
               </div>`
 
-    document.querySelector("#id-copy-clickarea").onclick = () =>
+    document.querySelector("#copy-button").onclick = () =>
       app.helpers.copy(app.link())
   }
 }
