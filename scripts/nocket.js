@@ -1,4 +1,4 @@
-const Nocket = id => {
+const Nocket = (id = null) => {
   const getId = function (_id) {
     const getRandomId = () => {
       const randomChar = () =>
@@ -10,7 +10,7 @@ const Nocket = id => {
         .join("-")
     }
 
-    if (_id == "") {
+    if (!_id) {
       _id = getRandomId()
     }
 
@@ -18,7 +18,7 @@ const Nocket = id => {
   }
 
   const _id = getId(id)
-  const url = `https://textdb.dev/api/data/${id}`
+  const url = `https://textdb.dev/api/data/${_id}`
 
   const read = () => fetch(url)
 

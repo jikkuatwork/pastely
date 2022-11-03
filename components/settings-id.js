@@ -29,9 +29,10 @@ class SettingsId extends HTMLElement {
 
                     </span>
                   </div>
-                  <div class="text-sm">${app.link()}</div>
+                  <div id="link-label" class="text-sm">${app.link()}</div>
                 </div>
                 <div
+                id="refresh-link"
                   class="flex cursor-pointer items-center justify-center bg-yellow-200 p-2 rounded-md"
                 >
                   <svg
@@ -55,6 +56,16 @@ class SettingsId extends HTMLElement {
 
     document.querySelector("#copy-button").onclick = () =>
       app.helpers.copy(app.link())
+
+    document.querySelector("#refresh-link").onclick = () => {
+      app.nocket = Nocket()
+      app.id = () => app.nocket.id
+      app.link = () => `https://pastely.as/${app.id()}`
+      document.querySelector("#link-label").innerHTML = app.link()
+      app.loadRemoteFile()
+      history.pushState({}, "", `?${app.id()}`)
+      app.render()
+    }
   }
 }
 

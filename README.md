@@ -28,16 +28,16 @@ Simple utility to collect pastes
 - [x] Ask for feedback
 - [x] Change item in clipboard to object (record time of paste)
 - [x] Extract components out
-- [ ] Renew Link
-- [ ] Use 200.html
-- [ ] Ability to add text
-- [ ] Optimise
-- [ ] Add version number in application
-- [ ] Add about
-- [ ] Test animation
+- [x] Renew Link
 - [ ] Delete, copy & Open for each item
 - [ ] Make link editable
-- [ ] CLI to download pastes
-- [ ] Compile to single file
-- [ ] Sync lists periodically
+- [ ] Compile to single file, purge CSS, minify JS
+- [ ] Fix iOS icon
+- [ ] Use 200.html
 - [ ] Generate preview for images
+- [ ] Ability to add text
+- [ ] Add about
+- [ ] Test animation
+- [ ] Sync lists periodically
+- [ ] CLI to download pastes
+- [ ] Add version number in application
