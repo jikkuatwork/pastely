@@ -237,10 +237,13 @@
               <div id="as-encrypt" class="mt-2 py-2">
                 <div id="title-block" class="flex justify-between items-center">
                   <div class="text-block">
-                    <div class="text-md font-black">Encrypt</div>
-                    <div class="text-sm">Protect with password</div>
+                    <div class="text-md font-black">Secure</div>
+                    <div class="text-sm">Password to encrypt/decrypt</div>
                   </div>
-                  <div class="flex items-center justify-center">
+                  <div
+                    id="password-switch"
+                    class="flex items-center justify-center"
+                  >
                     <label
                       for="toggle-encrypt"
                       class="flex items-center cursor-pointer"
@@ -249,7 +252,7 @@
                         <input
                           type="checkbox"
                           id="toggle-encrypt"
-                          class="sr-only toggle"
+                          class="sr-only hidden toggle"
                         />
                         <div
                           class="bkg block bg-gray-300 w-8 h-4 rounded-full"

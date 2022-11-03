@@ -20,8 +20,9 @@ Simple utility to collect pastes
 - [x] Restructure files
 - [x] Make link copyable
 - [x] Implement smart notifier
+- [x] Password protected message
+- [ ] Change password
 - [ ] Renew Link
-- [ ] Password protected message
 - [ ] Use 200.html
 - [ ] Conditional stripping of query strings
 - [ ] Change item in clipboard to object (record time of paste)

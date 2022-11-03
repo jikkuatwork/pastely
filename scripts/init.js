@@ -12,6 +12,7 @@
       actionSheet: { visibility: false },
       password: { visibility: false },
       overlay: { visibility: false },
+      delete: { visibility: true },
     },
   }
 
@@ -26,8 +27,10 @@
   app.iconMore = document.querySelector("#icon-more")
   app.iconClose = document.querySelector("#icon-close")
   app.passwordControl = document.querySelector("#input-encrypt")
+  app.deleteControl = document.querySelector("#as-delete-all")
   app.passwordInput = document.querySelector("#input-encrypt input")
   app.toggleEncrypt = document.querySelector("#toggle-encrypt")
+  app.passwordSwitch = document.querySelector("#password-switch")
   app.overlay = document.querySelector("#overlay")
   app.settingsId = document.querySelector("#as-id")
   app.notifierSlot = document.querySelector("#notifier-slot")
@@ -43,10 +46,20 @@
     }
 
     toggleVisibility(app.actionSheet, app.state.ui.actionSheet.visibility)
+    toggleVisibility(app.deleteControl, !app.db.meta.encrypted || app.password)
     toggleVisibility(app.iconMore, !app.state.ui.actionSheet.visibility)
     toggleVisibility(app.iconClose, app.state.ui.actionSheet.visibility)
-    toggleVisibility(app.passwordControl, app.state.ui.password.visibility)
+
+    toggleVisibility(
+      app.passwordControl,
+      app.state.ui.password.visibility || app.db.meta.encrypted
+    )
+    toggleVisibility(app.passwordSwitch, !app.password || app.db.meta.encrypted)
     toggleVisibility(app.overlay, app.state.ui.overlay.visibility)
+
+    if (!app.password && app.db.meta.encrypted) {
+      app.toggleEncrypt.checked = "checked"
+    }
 
     app.clipBoard.innerHTML = ""
 
@@ -82,11 +95,6 @@
       return
     }
 
-    // TODO:
-    // read encrypted
-    // decrypt to data
-    // push
-    // encrypt back
     const paste = { date: Date.now(), value: app.helpers.clean(_t) }
     const payload = JSON.parse(decrypt(app.db.payload, app.password))
     payload.clipboard.push(paste)
