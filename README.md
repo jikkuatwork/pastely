@@ -21,10 +21,11 @@ Simple utility to collect pastes
 - [x] Make link copyable
 - [x] Implement smart notifier
 - [x] Password protected message
-- [ ] Change password
+- [x] Change password
+- [x] Remove password
+- [x] Conditional stripping of query strings
 - [ ] Renew Link
 - [ ] Use 200.html
-- [ ] Conditional stripping of query strings
 - [ ] Change item in clipboard to object (record time of paste)
 - [ ] Extract components out
 - [ ] Ability to add text
