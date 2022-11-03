@@ -2,6 +2,7 @@
   window.app = {}
   const app = window.app
   app.name = "Pastely"
+  app.password = null
   app.nocket = Nocket(location.search.replace("?", "").split("=")[0])
   app.id = () => app.nocket.id
   app.link = () => `https://pastely.as/${app.id()}`
@@ -16,6 +17,7 @@
 
   app.pasteButton = document.querySelector("#paste-button")
   app.deleteButton = document.querySelector("#delete-button")
+  app.passwordSetButton = document.querySelector("#password-set")
   app.pasteArea = document.querySelector("#shadow-paste")
   app.clipBoard = document.querySelector("#clipboard")
   app.clip = document.querySelector(".clip-item")
@@ -23,11 +25,13 @@
   app.moreButton = document.querySelector("#more-button")
   app.iconMore = document.querySelector("#icon-more")
   app.iconClose = document.querySelector("#icon-close")
-  app.passwordInput = document.querySelector("#input-encrypt")
+  app.passwordControl = document.querySelector("#input-encrypt")
+  app.passwordInput = document.querySelector("#input-encrypt input")
   app.toggleEncrypt = document.querySelector("#toggle-encrypt")
   app.overlay = document.querySelector("#overlay")
   app.settingsId = document.querySelector("#as-id")
   app.notifierSlot = document.querySelector("#notifier-slot")
+  app.lockSplash = document.querySelector("#lock-splash")
 
   app.render = () => {
     const toggleVisibility = (element, state) => {
@@ -41,23 +45,32 @@
     toggleVisibility(app.actionSheet, app.state.ui.actionSheet.visibility)
     toggleVisibility(app.iconMore, !app.state.ui.actionSheet.visibility)
     toggleVisibility(app.iconClose, app.state.ui.actionSheet.visibility)
-    toggleVisibility(app.passwordInput, app.state.ui.password.visibility)
+    toggleVisibility(app.passwordControl, app.state.ui.password.visibility)
     toggleVisibility(app.overlay, app.state.ui.overlay.visibility)
 
     app.clipBoard.innerHTML = ""
 
-    app.db.payload.clipboard.forEach(item => {
-      let _clip = app.clip.cloneNode()
-      _clip.innerHTML = item.value
-      _clip.classList.add("block")
-      _clip.classList.remove("hidden")
+    if (app.db.meta.encrypted && !app.password) {
+      app.lockSplash.classList.add("block")
+      app.lockSplash.classList.remove("hidden")
 
-      app.clipBoard.append(_clip)
-    })
+      app.clipBoard.append(app.lockSplash)
+    } else {
+      const payload = JSON.parse(decrypt(app.db.payload, app.password))
+
+      payload.clipboard.forEach(item => {
+        let _clip = app.clip.cloneNode()
+        _clip.innerHTML = item.value
+        _clip.classList.add("block")
+        _clip.classList.remove("hidden")
+
+        app.clipBoard.append(_clip)
+      })
+    }
   }
 
   app.deleteEverything = () => {
-    app.intializeRemoteDB()
+    app.initializeRemoteDB()
 
     app.render()
   }
@@ -75,19 +88,22 @@
     // push
     // encrypt back
     const paste = { date: Date.now(), value: app.helpers.clean(_t) }
-    app.db.payload.clipboard.push(paste)
+    const payload = JSON.parse(decrypt(app.db.payload, app.password))
+    payload.clipboard.push(paste)
+    encrypt(JSON.stringify(payload), app.password).then(c => {
+      app.db.payload = c
+      app.db.meta.updated = Date.now()
+      app.nocket.write(app.db)
 
-    app.db.meta.updated = Date.now()
-    app.nocket.write(app.db)
-
-    app.render()
+      app.render()
+    })
   }
 
-  app.intializeRemoteDB = () => {
+  app.initializeRemoteDB = () => {
     app.db = {
       error: null,
       meta: { encrypted: false, updated: -1 },
-      payload: { clipboard: [] },
+      payload: JSON.stringify({ clipboard: [] }),
     }
 
     app.nocket.write(app.db)

@@ -20,4 +20,15 @@
 
     app.render()
   }
+
+  app.passwordSetButton.onclick = () => {
+    const password = app.passwordInput.value
+    const decryptedText = decrypt(app.db.payload, password)
+
+    if (!!decryptedText) {
+      app.password = password
+    }
+
+    app.render()
+  }
 })()

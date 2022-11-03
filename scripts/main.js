@@ -5,7 +5,7 @@
       .then(r => r.json())
       .then(j => (app.db = j))
       .catch(_ => {
-        app.intializeRemoteDB()
+        app.initializeRemoteDB()
       })
       .finally(() => app.render())
   }
