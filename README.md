@@ -33,6 +33,7 @@ Simple utility to collect pastes
 - [ ] Fix iOS icon
 - [ ] Use 200.html
 - [ ] Compile to single file, purge CSS, minify JS
+- [ ] Change password
 - [ ] Add about
 - [ ] Connect domain
 - [ ] Delete, copy & Open for each item
