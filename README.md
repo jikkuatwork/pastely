@@ -32,6 +32,7 @@ Simple utility to collect pastes
 - [ ] Ability to add text
 - [ ] Fix iOS icon
 - [ ] Use 200.html
+- [ ] CLI to decrypt pastes
 - [ ] Compile to single file, purge CSS, minify JS
 - [ ] Change password
 - [ ] Add about
