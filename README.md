@@ -29,6 +29,7 @@ Simple utility to collect pastes
 - [x] Change item in clipboard to object (record time of paste)
 - [x] Extract components out
 - [x] Renew Link
+- [ ] Make link clickable
 - [ ] Ability to add text
 - [ ] Fix iOS icon
 - [ ] Use 200.html
