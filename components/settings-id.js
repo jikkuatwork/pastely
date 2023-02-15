@@ -60,7 +60,7 @@ class SettingsId extends HTMLElement {
     document.querySelector("#refresh-link").onclick = () => {
       app.nocket = Nocket()
       app.id = () => app.nocket.id
-      app.link = () => `https://pastely.as/${app.id()}`
+      app.link = () => `https://pastely.toolbomber.com/?${app.id()}`
       document.querySelector("#link-label").innerHTML = app.link()
       app.loadRemoteFile()
       history.pushState({}, "", `?${app.id()}`)

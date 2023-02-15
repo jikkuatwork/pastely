@@ -5,7 +5,7 @@
   app.password = null
   app.nocket = Nocket(location.search.replace("?", "").split("=")[0])
   app.id = () => app.nocket.id
-  app.link = () => `https://pastely.as/${app.id()}`
+  app.link = () => `https://pastely.toolbomber.com/?${app.id()}`
   app.helpers = {}
   app.state = {
     ui: {
